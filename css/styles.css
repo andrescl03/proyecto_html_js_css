@@ -8,16 +8,12 @@
     clear:both;
     
 }
-body{
-    background: url('../img/hojas.jpg');
-    background-attachment: fixed;
-}
 
 #global{
     width: 65%;
     margin: 0px auto;
     margin-top: 30px;
-    padding: 20px;
+    padding: 25px;
     background: white;
 
     box-shadow: 0px 0px 4px gray;
@@ -29,7 +25,6 @@ body{
     font-size: 28px;
     letter-spacing: 4px;
     line-height: 75px;
-    background: #235E3D;
     color: white;
     text-align: center;
     width: 385px;
@@ -60,11 +55,6 @@ body{
     transition: all 300ms;
 }
 
-#menu ul li:hover{
-    
-    background: #235E3D;
-
-}
 #menu a{
      display: block;
      color: white;
@@ -74,7 +64,7 @@ body{
      
 }
 
-#post{
+#posts{
     width: 60%;
     float:left;
     font-family: Helvetica,Arial;
@@ -106,11 +96,110 @@ body{
     text-align: center;
     display: block;
     padding: 15px;
-    background: #235E3D;
     color:white;
     text-decoration: none;
     margin-top:10px;
     width: 70px;
     margin-bottom: 20px;
     
+}
+
+#sidebar{
+    font-family: Helvetica,Arial;
+    width: 31%;
+    float:right;
+}
+#sidebar h4{
+    margin-top:50px;
+    margin-bottom: 20px;
+    text-align: center;
+    line-height: 10px;
+    color:#333;
+    background: url("../img/lines.png") repeat-x;
+
+}
+
+#sidebar h4 span{
+    background: white;
+    padding:5px;
+}
+
+#sidebar img{
+    width:100%;
+}
+
+#sidebar p{
+    font-size:15px;
+    text-align: justify;
+
+}
+
+
+form input[type="text"],
+form input[type="password"],
+form input[type="email"]{
+
+    padding: 5px;
+    border-radius: 2px;
+    border:1px solid #ccc;
+    width:100%;
+    margin-bottom: 10px;
+    box-shadow: 0px 0px 2px gray;
+    margin-top: 5px;
+}
+
+form input[type="submit"]{
+    background: #eee;
+    padding:10px;
+    border:1px solid #ccc; 
+    color:#333;
+    cursor:pointer;
+}
+
+footer{
+    font-family: Helvetica,Arial;
+    color:white;
+    height: 47px;
+    background: rgba(51,51,51, 0.70);
+    margin: 0px auto;
+    width: 65%;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-top: 50px;
+    line-height: 47px;
+
+}
+
+.bx-wrapper, .bx-viewport{
+    height: 250px  !important;
+
+}
+#selector-theme{
+    position:fixed;
+    top:40%;
+    background: rgba(51,51,51,0.5 );
+    width:50px;
+    height:100px;
+}
+
+#to-green,
+#to-red,
+#to-blue{
+    width: 25px;
+    height: 25px;
+    border: 1px solid white;
+    display:block;
+    margin: 0px auto;
+    margin-top:5px;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+#to-green{
+    background: #235E3D;
+}
+#to-red{
+    background: #C43413;
+}
+#to-blue{
+    background: #1F87C4;
 }
