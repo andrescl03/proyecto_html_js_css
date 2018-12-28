@@ -45,7 +45,8 @@ $(document).ready(function(){
                 content: ' Lorem ipsum, dolor sit amet consectetur adipisicing elit. Id voluptatum mollitia   dignissimos itaque a! Nesciunt soluta laudantium explicabo, iusto vero illum   necessitatibus dignissimos molestias! Aperiam odit dolorem vero facere modi.'  
             }
       ];
-      posts.forEach((item, index)=>{
+      
+      posts.forEach(function(item,index){
             var post = `
             <article class="post">
             <h2>${item.title}</h2>
@@ -86,5 +87,16 @@ console.log(color);
         $("#to-blue").click(function(){
             localStorage.setItem("theme","blue-theme");
             theme.attr("href","css/blue.css")
+        });
+
+
+        //Scroll arriba de la web
+
+        $('.subir').click(function(e){
+            e.preventDefault(); 
+                $('html, body').animate({
+                    scrollTop:0
+                }, 500);
+                return false;
         });
     });
