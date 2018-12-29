@@ -1,17 +1,15 @@
 $(document).ready(function(){
 
     //Slider
-    $(function(){
+    if(window.location.href.indexOf('index') > -1){
         $('.galeria').bxSlider({
           mode: 'fade',
           captions: true,
           slideWidth: 1200
         });
-      });
-
-
+    }
       //Posts
-
+      if(window.location.href.indexOf('index') > -1){
       var posts = [
             {
               title: 'Prueba de titulo 1',
@@ -45,7 +43,7 @@ $(document).ready(function(){
                 content: ' Lorem ipsum, dolor sit amet consectetur adipisicing elit. Id voluptatum mollitia   dignissimos itaque a! Nesciunt soluta laudantium explicabo, iusto vero illum   necessitatibus dignissimos molestias! Aperiam odit dolorem vero facere modi.'  
             }
       ];
-      
+    
       posts.forEach(function(item,index){
             var post = `
             <article class="post">
@@ -58,7 +56,8 @@ $(document).ready(function(){
     </article>`;
 
     $("#posts").append(post);
-       })
+       });
+    }
        
       var theme= $("#theme");
       var  color = localStorage.getItem("theme");
@@ -89,9 +88,7 @@ console.log(color);
             theme.attr("href","css/blue.css")
         });
 
-
         //Scroll arriba de la web
-
         $('.subir').click(function(e){
             e.preventDefault(); 
                 $('html, body').animate({
@@ -99,4 +96,50 @@ console.log(color);
                 }, 500);
                 return false;
         });
+
+        $("#login form").submit(function(){
+            var form_name =  $("#form_name").val();
+            localStorage.setItem("form_name",form_name);
+            });
+        
+            var form_name = localStorage.getItem("form_name");
+            if(form_name!=null && form_name != "undefined"){
+                var about_parrafo=   $('#about p');
+                about_parrafo.html("<br><strong> Bienvenido, " + form_name + "</strong>");
+                about_parrafo.append("<a href='#' id='logout'>Cerrar Sesion </a>");
+                
+                $("#login").hide();
+                $("#logout").click(function(){
+                        localStorage.removeItem("form_name");
+                        location.reload();
+                });
+        }
+
+ //Acordeon
+        if(window.location.href.indexOf('about') > -1){ 
+            $("#acordeon").accordion();
+        }
+    //reloj
+        if(window.location.href.indexOf('reloj') > 1){
+            setInterval(function(){
+                var reloj = moment().format("h:mm:ss");
+                $("#reloj").html(reloj);
+
+            },1000);
+           
+        }
+
+        //validacion
+        if(window.location.href.indexOf('contact') > 1){
+            
+            $("form input[name='date']").datepicker({
+                dateFormat: 'dd-mm-yy'
+            }); 
+            $.validate({
+            lang: 'es',
+            errorMessagePosition : 'top',
+            scrollToTopOnError: true
+          });
+        }
+
     });
